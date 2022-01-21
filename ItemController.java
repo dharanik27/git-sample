@@ -34,12 +34,12 @@ public class ItemController {
 		Optional<Item> item = businessService.retrieveItem(id);
 		return item.isPresent() ? item.get() : null;
 	}
-
+	
 	@GetMapping("//item/retrieve/{name}")
 	public List<Item> retrieveItemByName(@PathVariable String name) {
 		return businessService.retrieveItemByName(name);
 	}
-
+			
 	@GetMapping("//item/retrieve/byprice")
 	public List<Item> retrieveItemsByPrice(@RequestParam int price) {
 		return businessService.retrieveItemsByPrice(price);
