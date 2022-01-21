@@ -22,24 +22,24 @@ import com.unittesting.model.Item;
 public class ItemController {
 
 	@Autowired
+	private ItemBusinessService1 businessService1;
+	@Autowired
+	private ItemBusinessService2 businessService2;
+	@Autowired
 	private ItemBusinessService businessService;
 
-	@GetMapping("/all-items-from-database")
-	public List<Item> retrieveAllItems() {
-		return businessService.retrieveAllItems();
-	}
-
+	
 	@GetMapping("/item/retrieve/{id}")
 	public Item retrieveItem(@PathVariable Integer id) {
 		Optional<Item> item = businessService.retrieveItem(id);
 		return item.isPresent() ? item.get() : null;
 	}
-
+	
 	@GetMapping("//item/retrieve/{name}")
 	public List<Item> retrieveItemByName(@PathVariable String name) {
 		return businessService.retrieveItemByName(name);
 	}
-
+			
 	@GetMapping("//item/retrieve/byprice")
 	public List<Item> retrieveItemsByPrice(@RequestParam int price) {
 		return businessService.retrieveItemsByPrice(price);
@@ -49,6 +49,10 @@ public class ItemController {
 	public ResponseEntity addItem(@RequestBody Item item) {
 		Item createdItem = businessService.save(item);
 		return ResponseEntity.ok(true);
+	}
+	@GetMapping("/all-items-from-database")
+	public List<Item> retrievefgfgfgAllItems() {
+		return businessService.retrieveAllItems();
 	}
 
 	@PutMapping("/item/update/{id}")
