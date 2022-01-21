@@ -28,7 +28,7 @@ public class ItemController {
 	private ItemBusinessService businessService;
 
 	@GetMapping("/all-items-from-database")
-	public List<Item> retrieveAllItems() {
+	public List<Item> retrievefgfgfgAllItems() {
 		return businessService.retrieveAllItems();
 	}
 
