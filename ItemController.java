@@ -22,6 +22,9 @@ import com.unittesting.model.Item;
 public class ItemController {
 
 	@Autowired
+	private ItemBusinessService1 businessService1;
+	
+	@Autowired
 	private ItemBusinessService businessService;
 
 	@GetMapping("/all-items-from-database")
